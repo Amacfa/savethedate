@@ -608,10 +608,9 @@
     
     <!-- Background -->
     <div class="bg-container">
-        <div class="bg-image" id="bg1" style="background-image: url('images/LH3_7719.jpg');"></div>
-        <div class="bg-image" id="bg2" style="background-image: url('images/LH3_7562.jpg');"></div>
-        <div class="bg-image" id="bg3" style="background-image: url('images/LH3_7451.jpg');"></div>
-        <div class="bg-image" id="bg4" style="background-image: url('images/LH3_7570.jpg');"></div>
+        <div class="bg-image" id="bg1"></div>
+        <div class="bg-image" id="bg2"></div>
+        <div class="bg-image" id="bg3"></div>
         <div class="bg-overlay"></div>
     </div>
     
@@ -774,19 +773,19 @@
                 <div class="card-side card-back">
                     <div class="photos-container">
                         <div class="photo" style="--rotate: -10deg;">
-                            <img src="images/LH3_7719.jpg" alt="Abby & Alex Photo">
+                            <img src="images/28EF0665-3D1E-46B2-A6E6-B1FDCA9047F4_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" style="--rotate: 8deg;">
-                            <img src="images/LH3_7562.jpg" alt="Abby & Alex Photo">
+                            <img src="images/3AEF6DE1-6398-4DA1-9219-E97B092551DA_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" style="--rotate: 5deg;">
-                            <img src="images/LH3_7451.jpg" alt="Abby & Alex Photo">
+                            <img src="images/41B8D6DA-0D42-41D9-B5A6-7E4FB79EDD29_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" style="--rotate: -5deg;">
-                            <img src="images/LH3_7570.jpg" alt="Abby & Alex Photo">
+                            <img src="images/72CF7026-A4E8-4039-B2EA-CA4BC6DEB39F_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                     </div>
@@ -815,6 +814,20 @@
             // Set wedding date for countdown
             const weddingDate = new Date('April 17, 2026 16:00:00').getTime();
             
+            // Array of all image filenames
+            const imageFilenames = [
+                '28EF0665-3D1E-46B2-A6E6-B1FDCA9047F4_1_201_a.jpeg',
+                '3AEF6DE1-6398-4DA1-9219-E97B092551DA_1_201_a.jpeg',
+                '41B8D6DA-0D42-41D9-B5A6-7E4FB79EDD29_1_201_a.jpeg',
+                '72CF7026-A4E8-4039-B2EA-CA4BC6DEB39F_1_201_a.jpeg',
+                '9CB3CF19-A8E2-409A-AC33-ADFEFF2282D7_1_201_a.jpeg',
+                'AD3270DD-BDEF-4B83-BFE4-BB1F6EFE6639_1_201_a.jpeg',
+                'B40E48E3-B40F-4299-A3C4-E67ABFD5C0C3_1_201_a.jpeg',
+                'BEF7EC55-1B3B-4F3C-9300-1308C0CEEADA_1_201_a.jpeg',
+                'C4EC1516-4864-48E4-A03F-0D1955CFA266_1_201_a.jpeg',
+                'D9174833-F45A-4702-9D15-8888A3D17802_1_201_a.jpeg'
+            ];
+            
             // Create Cherry Blossoms
             createCherryBlossoms();
             
@@ -841,28 +854,51 @@
             
             // Initialize Background Slideshow
             function initBackgroundSlideshow() {
-                const images = [
+                const bgElements = [
                     document.getElementById('bg1'),
                     document.getElementById('bg2'),
-                    document.getElementById('bg3'),
-                    document.getElementById('bg4')
+                    document.getElementById('bg3')
                 ];
                 
-                let currentIndex = Math.floor(Math.random() * images.length);
-                images[currentIndex].classList.add('active');
+                // Track which images are currently displayed
+                let displayedImages = [];
+                let currentBgIndex = 0;
+                
+                // Initialize background elements with random images
+                bgElements.forEach((element, index) => {
+                    let randomIndex;
+                    do {
+                        randomIndex = Math.floor(Math.random() * imageFilenames.length);
+                    } while (displayedImages.includes(randomIndex));
+                    
+                    displayedImages.push(randomIndex);
+                    element.style.backgroundImage = `url('images/${imageFilenames[randomIndex]}')`;
+                    
+                    if (index === 0) {
+                        element.classList.add('active');
+                    }
+                });
                 
                 setInterval(() => {
                     // Fade out current image
-                    images[currentIndex].classList.remove('active');
+                    bgElements[currentBgIndex].classList.remove('active');
                     
-                    // Select random next image (different from current)
-                    let nextIndex;
+                    // Select next background element
+                    currentBgIndex = (currentBgIndex + 1) % bgElements.length;
+                    
+                    // Select a new random image that's not currently displayed
+                    let newImageIndex;
                     do {
-                        nextIndex = Math.floor(Math.random() * images.length);
-                    } while (nextIndex === currentIndex);
+                        newImageIndex = Math.floor(Math.random() * imageFilenames.length);
+                    } while (displayedImages.includes(newImageIndex));
                     
-                    currentIndex = nextIndex;
-                    images[currentIndex].classList.add('active');
+                    // Update displayed images array
+                    const oldImageIndex = displayedImages[currentBgIndex];
+                    displayedImages[currentBgIndex] = newImageIndex;
+                    
+                    // Set new image and fade in
+                    bgElements[currentBgIndex].style.backgroundImage = `url('images/${imageFilenames[newImageIndex]}')`;
+                    bgElements[currentBgIndex].classList.add('active');
                 }, 8000);
             }
             
