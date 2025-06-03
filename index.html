@@ -611,6 +611,7 @@
         <div class="bg-image" id="bg1" style="background-image: url('images/LH3_7719.jpg');"></div>
         <div class="bg-image" id="bg2" style="background-image: url('images/LH3_7562.jpg');"></div>
         <div class="bg-image" id="bg3" style="background-image: url('images/LH3_7451.jpg');"></div>
+        <div class="bg-image" id="bg4" style="background-image: url('images/LH3_7570.jpg');"></div>
         <div class="bg-overlay"></div>
     </div>
     
@@ -743,7 +744,7 @@
                         <span class="ampersand">&</span>
                         <span class="name" id="secondName">Alex</span>
                     </h1>
-                    <p class="date" id="weddingDate">September 18, 2026</p>
+                    <p class="date" id="weddingDate">April 17, 2026</p>
                     
                     <div class="divider"></div>
                     
@@ -773,11 +774,11 @@
                 <div class="card-side card-back">
                     <div class="photos-container">
                         <div class="photo" style="--rotate: -10deg;">
-                            <img src="images/LH3_7570.jpg" alt="Abby & Alex Photo">
+                            <img src="images/LH3_7719.jpg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" style="--rotate: 8deg;">
-                            <img src="images/LH3_7337-2.jpg" alt="Abby & Alex Photo">
+                            <img src="images/LH3_7562.jpg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" style="--rotate: 5deg;">
@@ -785,7 +786,7 @@
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" style="--rotate: -5deg;">
-                            <img src="images/LH3_7179.jpg" alt="Abby & Alex Photo">
+                            <img src="images/LH3_7570.jpg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                     </div>
@@ -793,11 +794,11 @@
                     <h2 class="location-title" id="locationTitle">The Celebration</h2>
                     <p class="location-details" id="locationDetails">
                         Join us for our wedding celebration<br>
-                        The Grand Botanical Gardens<br>
-                        1234 Blossom Avenue<br>
-                        San Francisco, California
+                        The Villa<br>
+                        4060 Powder Mill Road<br>
+                        Beltsville, Maryland 20705
                     </p>
-                    <p class="coordinates" id="coordinates">37° 46' 2.8" N / 122° 25' 56.4" W</p>
+                    <p class="coordinates" id="coordinates">39° 2' 13.2" N / 76° 55' 22.8" W</p>
                     
                     <div class="divider"></div>
                     
@@ -812,7 +813,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Set wedding date for countdown
-            const weddingDate = new Date('September 18, 2026 16:00:00').getTime();
+            const weddingDate = new Date('April 17, 2026 16:00:00').getTime();
             
             // Create Cherry Blossoms
             createCherryBlossoms();
@@ -843,15 +844,24 @@
                 const images = [
                     document.getElementById('bg1'),
                     document.getElementById('bg2'),
-                    document.getElementById('bg3')
+                    document.getElementById('bg3'),
+                    document.getElementById('bg4')
                 ];
                 
-                let currentIndex = 0;
+                let currentIndex = Math.floor(Math.random() * images.length);
                 images[currentIndex].classList.add('active');
                 
                 setInterval(() => {
+                    // Fade out current image
                     images[currentIndex].classList.remove('active');
-                    currentIndex = (currentIndex + 1) % images.length;
+                    
+                    // Select random next image (different from current)
+                    let nextIndex;
+                    do {
+                        nextIndex = Math.floor(Math.random() * images.length);
+                    } while (nextIndex === currentIndex);
+                    
+                    currentIndex = nextIndex;
                     images[currentIndex].classList.add('active');
                 }, 8000);
             }
