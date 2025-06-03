@@ -380,6 +380,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: opacity 0.5s ease;
         }
         
         .photo-frame {
@@ -772,19 +773,19 @@
                 <!-- Back Card -->
                 <div class="card-side card-back">
                     <div class="photos-container">
-                        <div class="photo" style="--rotate: -10deg;">
+                        <div class="photo" id="photo1" style="--rotate: -10deg;">
                             <img src="images/28EF0665-3D1E-46B2-A6E6-B1FDCA9047F4_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
-                        <div class="photo" style="--rotate: 8deg;">
+                        <div class="photo" id="photo2" style="--rotate: 8deg;">
                             <img src="images/3AEF6DE1-6398-4DA1-9219-E97B092551DA_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
-                        <div class="photo" style="--rotate: 5deg;">
+                        <div class="photo" id="photo3" style="--rotate: 5deg;">
                             <img src="images/41B8D6DA-0D42-41D9-B5A6-7E4FB79EDD29_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
-                        <div class="photo" style="--rotate: -5deg;">
+                        <div class="photo" id="photo4" style="--rotate: -5deg;">
                             <img src="images/72CF7026-A4E8-4039-B2EA-CA4BC6DEB39F_1_201_a.jpeg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
@@ -845,6 +846,7 @@
                     initAnimations();
                     initThreeJS();
                     initCardFlip();
+                    initPhotoRotation();
                     updateCountdown();
                     
                     // Start countdown timer
@@ -900,6 +902,51 @@
                     bgElements[currentBgIndex].style.backgroundImage = `url('images/${imageFilenames[newImageIndex]}')`;
                     bgElements[currentBgIndex].classList.add('active');
                 }, 8000);
+            }
+            
+            // Initialize Photo Frame Rotation
+            function initPhotoRotation() {
+                const photos = [
+                    document.querySelector('#photo1 img'),
+                    document.querySelector('#photo2 img'),
+                    document.querySelector('#photo3 img'),
+                    document.querySelector('#photo4 img')
+                ];
+                
+                // Initialize with random images
+                let displayedPhotoIndices = [];
+                photos.forEach((photo, index) => {
+                    let randomIndex;
+                    do {
+                        randomIndex = Math.floor(Math.random() * imageFilenames.length);
+                    } while (displayedPhotoIndices.includes(randomIndex));
+                    
+                    displayedPhotoIndices.push(randomIndex);
+                    photo.src = `images/${imageFilenames[randomIndex]}`;
+                });
+                
+                setInterval(() => {
+                    // Select a random photo frame to update
+                    const photoIndex = Math.floor(Math.random() * photos.length);
+                    
+                    // Select a new image that's not currently displayed
+                    let newImageIndex;
+                    do {
+                        newImageIndex = Math.floor(Math.random() * imageFilenames.length);
+                    } while (displayedPhotoIndices.includes(newImageIndex));
+                    
+                    // Fade out, change image, fade in
+                    const photo = photos[photoIndex];
+                    photo.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        photo.src = `images/${imageFilenames[newImageIndex]}`;
+                        photo.style.opacity = '1';
+                        
+                        // Update tracking array
+                        displayedPhotoIndices[photoIndex] = newImageIndex;
+                    }, 500);
+                }, 5000);
             }
             
             // Create Cherry Blossoms
