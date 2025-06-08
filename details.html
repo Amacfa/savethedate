@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex & Abby - Beauty & the Beast Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8b4513;
+            --secondary: #daa520;
+            --accent: #6b5b73;
+            --rose-gold: #e8b4cb;
+            --pearl: #f8f6f0;
+            --blush: #faf0e6;
+            --lavender: #e6e0f0;
+            --text-dark: #2d2d2d;
+            --text-light: #5d4e37;
+            --bg-primary: rgba(248, 244, 230, 0.95);
+            --bg-glass: rgba(255, 255, 255, 0.3);
+            --bg-glass-hover: rgba(255, 255, 255, 0.4);
+            --border-glass: rgba(255, 255, 255, 0.4);
+            --shadow-light: 0 8px 32px rgba(139, 69, 19, 0.1);
+            --shadow-medium: 0 12px 40px rgba(139, 69, 19, 0.15);
+            --shadow-feminine: 0 8px 32px rgba(232, 180, 203, 0.2);
+            --glow-pearl: 0 0 20px rgba(248, 246, 240, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(232, 180, 203, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(230, 224, 240, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(248, 246, 240, 0.3) 0%, transparent 70%),
+                linear-gradient(135deg, #faf9f6 0%, #f0ebe5 30%, #e8ddd4 70%, #d4c4a8 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lace" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="0.5" fill="%23e8b4cb" opacity="0.1"/><circle cx="5" cy="5" r="0.3" fill="%23daa520" opacity="0.08"/><circle cx="15" cy="15" r="0.4" fill="%23e6e0f0" opacity="0.09"/></pattern></defs><rect width="100" height="100" fill="url(%23lace)"/></svg>');
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, rgba(218, 165, 32, 0.02) 0%, transparent 3%, transparent 97%, rgba(218, 165, 32, 0.02) 100%),
+                linear-gradient(180deg, rgba(218, 165, 32, 0.02) 0%, transparent 3%, transparent 97%, rgba(218, 165, 32, 0.02) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
+        .header {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(248, 246, 240, 0.5)),
+                linear-gradient(45deg, rgba(232, 180, 203, 0.1), rgba(230, 224, 240, 0.1));
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 30px;
+            padding: 40px 32px;
+            margin-bottom: 32px;
+            box-shadow: 
+                var(--shadow-feminine),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                var(--glow-pearl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(232, 180, 203, 0.1) 0%, transparent 70%),
+                radial-gradient(circle, rgba(248, 246, 240, 0.2) 20%, transparent 60%);
+            animation: ethereal-float 8s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: pearl-shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes ethereal-float {
+            0%, 100% { transform: translate(-10px, -10px) rotate(0deg); }
+            33% { transform: translate(10px, -5px) rotate(120deg); }
+            66% { transform: translate(-5px, 10px) rotate(240deg); }
+        }
+
+        @keyframes pearl-shimmer {
+            0%, 100% { transform: translateX(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--rose-gold) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(232, 180, 203, 0.3);
+            position: relative;
+        }
+
+        .header-title::after {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -20px;
+            font-size: 1rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .header-theme {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(248, 246, 240, 0.3)),
+                linear-gradient(45deg, rgba(232, 180, 203, 0.1), rgba(230, 224, 240, 0.1));
+            backdrop-filter: blur(20px);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            color: var(--text-dark);
+            padding: 14px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 
+                0 6px 20px rgba(232, 180, 203, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .nav-btn:hover {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(248, 246, 240, 0.4)),
+                linear-gradient(45deg, rgba(232, 180, 203, 0.15), rgba(230, 224, 240, 0.15));
+            transform: translateY(-3px);
+            box-shadow: 
+                0 12px 35px rgba(232, 180, 203, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                var(--glow-pearl);
+            border-color: rgba(232, 180, 203, 0.4);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, var(--rose-gold), var(--secondary));
+            color: white;
+            border-color: var(--rose-gold);
+            box-shadow: 
+                0 12px 35px rgba(232, 180, 203, 0.3),
+                var(--glow-pearl);
+        }
+
+        .nav-btn i {
+            font-size: 0.85rem;
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(248, 246, 240, 0.3)),
+                linear-gradient(45deg, rgba(232, 180, 203, 0.08), rgba(230, 224, 240, 0.08));
+            backdrop-filter: blur(25px);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            border-radius: 25px;
+            padding: 40px 32px;
+            margin-bottom: 24px;
+            box-shadow: 
+                0 20px 60px rgba(232, 180, 203, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                0 0 0 1px rgba(232, 180, 203, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rose-gold), var(--secondary), var(--rose-gold));
+            border-radius: 25px 25px 0 0;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(232, 180, 203, 0.4), transparent);
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), transparent);
+        }
+
+        .section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin: 24px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section h3::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(218, 165, 32, 0.4), transparent);
+            margin-left: 16px;
+        }
+
+        /* Grid System */
+        .grid {
+            display: grid;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+        .card {
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(248, 246, 240, 0.4)),
+                linear-gradient(45deg, rgba(232, 180, 203, 0.08), rgba(230, 224, 240, 0.08));
+            backdrop-filter: blur(15px);
+            border: 1.5px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 8px 32px rgba(232, 180, 203, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 60px rgba(232, 180, 203, 0.25),
+                0 0 0 1px rgba(232, 180, 203, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                var(--glow-pearl);
+            background: 
+                linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(248, 246, 240, 0.5)),
+                linear-gradient(45deg, rgba(232, 180, 203, 0.12), rgba(230, 224, 240, 0.12));
+        }
+
+        .card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card p, .card li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--secondary), var(--primary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-left: 16px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--secondary);
+        }
+
+        .timeline-time {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Tables */
+        .table-container {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th {
+            background: rgba(139, 69, 19, 0.9);
+            color: white;
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+        }
+
+        .table tr:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Menu Section */
+        .menu-category {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .menu-category h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .menu-items {
+            display: grid;
+            gap: 8px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .menu-item-desc {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        /* Special Elements */
+        .highlight {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.2), rgba(184, 134, 11, 0.1));
+            border: 1px solid rgba(218, 165, 32, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: highlight-shine 4s ease-in-out infinite;
+        }
+
+        @keyframes highlight-shine {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .final-message {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(248, 244, 230, 0.6));
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            margin: 24px 0;
+            box-shadow: var(--shadow-light);
+            position: relative;
+        }
+
+        .final-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+        }
+
+        /* Enhanced Card Styles */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.5), transparent);
+        }
+
+        /* Timeline Enhancements */
+        .timeline-item:hover {
+            transform: translateX(4px);
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--secondary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .timeline-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Section Enhancements */
+        .section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.3), transparent);
+        }
+
+        /* Navigation Enhancements */
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-btn.active::after {
+            width: 60%;
+        }
+
+        /* Menu Category Enhancements */
+        .menu-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--secondary), var(--primary));
+            border-radius: 0 2px 2px 0;
+        }
+
+        .menu-category {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Table Enhancements */
+        .table-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary), var(--secondary));
+        }
+
+        .table-container {
+            position: relative;
+        }
+
+        /* Floating Action Elements */
+        .floating-rose {
+            position: fixed;
+            font-size: 0.8rem;
+            color: var(--rose-gold);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+            animation: feminine-float 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(232, 180, 203, 0.3));
+        }
+
+        .floating-pearl {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, rgba(248, 246, 240, 0.8), rgba(255, 255, 255, 0.4));
+            border-radius: 50%;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: -1;
+            animation: pearl-drift 12s linear infinite;
+            box-shadow: 0 0 8px rgba(248, 246, 240, 0.5);
+        }
+
+        @keyframes feminine-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+            25% { transform: translateY(-15px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(-8px) rotate(180deg) scale(0.9); }
+            75% { transform: translateY(-20px) rotate(270deg) scale(1.05); }
+        }
+
+        @keyframes pearl-drift {
+            0% { transform: translateY(100vh) translateX(-10px) scale(0); opacity: 0; }
+            10% { opacity: 0.6; transform: scale(1); }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100px) translateX(10px) scale(0); opacity: 0; }
+        }
+
+        .quote {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 24px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 12px; }
+            .header { padding: 24px 16px; }
+            .header-title { font-size: 2rem; }
+            .section { padding: 24px 16px; }
+            .nav { gap: 6px; }
+            .nav-btn { padding: 10px 16px; font-size: 0.85rem; }
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            .timeline { padding-left: 16px; }
+            .timeline-item { margin-left: 12px; }
+        }
+
+        /* Animations */
+        .card {
+            animation: slideUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">Abby & Alex</h1>
+                <p class="header-subtitle">Beauty & the Beast Wedding</p>
+                <p class="header-theme">April 17, 2026 • A Tale as Old as Time</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <button class="nav-btn active" onclick="showSection('overview')">
+                <i class="fas fa-heart"></i> Our Story
+            </button>
+            <button class="nav-btn" onclick="showSection('venue')">
+                <i class="fas fa-castle"></i> The Villa
+            </button>
+            <button class="nav-btn" onclick="showSection('timeline')">
+                <i class="fas fa-clock"></i> Timeline
+            </button>
+            <button class="nav-btn" onclick="showSection('dining')">
+                <i class="fas fa-utensils"></i> Dining
+            </button>
+            <button class="nav-btn" onclick="showSection('details')">
+                <i class="fas fa-sparkles"></i> Details
+            </button>
+        </nav>
+
+        <!-- Overview Section -->
+        <section id="overview" class="section active">
+            <h2 class="section-title"><i class="fas fa-heart"></i> Our Enchanted Celebration</h2>
+            
+
+
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4><i class="fas fa-palette"></i> Theme & Colors</h4>
+                    <p>Beauty & the Beast fairy tale with rich browns, ivory whites, muted blues, and golden accents</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-map-marker-alt"></i> Venue</h4>
+                    <p>The Villa - elegant estate with outdoor ceremony and indoor ballroom reception</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-paw"></i> Special Guests</h4>
+                    <p>Tegrity and Geralt, our beloved dogs, will join us as honored wedding party members</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-magic"></i> Magical Elements</h4>
+                    <p>Enchanted roses, fairy tale music, elegant dining, and a lantern send-off finale</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-ring"></i> Join Us for Our Fairy Tale Wedding</h3>
+                <p>We're excited to celebrate this magical day with all of you. Your presence makes our fairy tale complete!</p>
+            </div>
+        </section>
+
+        <!-- Venue Section -->
+        <section id="venue" class="section">
+            <h2 class="section-title"><i class="fas fa-castle"></i> The Villa</h2>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4><i class="fas fa-leaf"></i> Ceremony Space</h4>
+                    <p>Elegant outdoor tent surrounded by natural beauty for an intimate ceremony setting</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-gem"></i> Reception Ballroom</h4>
+                    <p>Indoor elegance with sparkling chandeliers, perfect for dinner, dancing, and celebration</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-camera"></i> Photo Opportunities</h4>
+                    <p>Beautiful gardens, scenic backdrops, and charming architectural details throughout the estate</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-universal-access"></i> Guest Comfort</h4>
+                    <p>Accessible venue with easy transitions between ceremony and reception spaces</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-info-circle"></i> Venue Features</h3>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Space</th>
+                            <th>Capacity</th>
+                            <th>Features</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ceremony Tent</td>
+                            <td>50 guests</td>
+                            <td>Elegant outdoor setting, natural lighting</td>
+                        </tr>
+                        <tr>
+                            <td>Reception Ballroom</td>
+                            <td>50 guests</td>
+                            <td>Indoor venue with crystal chandeliers</td>
+                        </tr>
+                        <tr>
+                            <td>Cocktail Gardens</td>
+                            <td>Open space</td>
+                            <td>Landscaped grounds, photo areas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <h2 class="section-title"><i class="fas fa-clock"></i> Day of Celebration</h2>
+            
+
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">3:00 PM</div>
+                    <div class="timeline-title">Ceremony Begins</div>
+                    <div class="timeline-desc">Wedding ceremony in the outdoor tent with Tegrity and Geralt joining the processional</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">3:30 PM</div>
+                    <div class="timeline-title">Post-Ceremony Celebration</div>
+                    <div class="timeline-desc">Immediate celebration and photo opportunities following the ceremony</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">3:30 - 4:30 PM</div>
+                    <div class="timeline-title">Cocktail Hour</div>
+                    <div class="timeline-desc">Champagne, hors d'oeuvres, guest book signing, and photo opportunities in the gardens</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">4:45 PM</div>
+                    <div class="timeline-title">Reception Entrance</div>
+                    <div class="timeline-desc">Grand entrance into the ballroom as newlyweds</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">5:00 - 6:30 PM</div>
+                    <div class="timeline-title">Dinner Service</div>
+                    <div class="timeline-desc">Multi-course plated dinner with toasts and celebration</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">6:45 PM</div>
+                    <div class="timeline-title">First Dance & Parent Dances</div>
+                    <div class="timeline-desc">Our first dance followed by special dances with our parents</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">7:00 - 8:45 PM</div>
+                    <div class="timeline-title">Dancing & Celebration</div>
+                    <div class="timeline-desc">Open dance floor for all guests with music, laughter, and magical moments</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-time">8:45 PM</div>
+                    <div class="timeline-title">Grand Finale Send-Off</div>
+                    <div class="timeline-desc">Magical lantern send-off celebration as we begin our journey as husband and wife</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dining Section -->
+        <section id="dining" class="section">
+            <h2 class="section-title"><i class="fas fa-utensils"></i> Dining Experience</h2>
+            
+            <div class="menu-category">
+                <h4><i class="fas fa-cocktail"></i> Cocktail Hour (3:30 - 4:30 PM)</h4>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Signature Hors d'Oeuvres Selection</div>
+                            <div class="menu-item-desc">Curated appetizers and canapés - menu being finalized</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Premium Beverage Service</div>
+                            <div class="menu-item-desc">Champagne, wine, cocktails, and specialty drinks</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h4><i class="fas fa-plate-wheat"></i> Reception Dinner (5:00 - 6:30 PM)</h4>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Multi-Course Dinner Experience</div>
+                            <div class="menu-item-desc">Elegant plated dinner with carefully selected courses - details being confirmed</div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div>
+                            <div class="menu-item-name">Wedding Cake & Dessert</div>
+                            <div class="menu-item-desc">Beautiful themed cake with coffee service</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-utensils"></i> Culinary Details Coming Soon</h3>
+                <p>We're working with our caterer to finalize the perfect menu for our celebration. Full dining details will be shared as we get closer to the date!</p>
+            </div>
+
+
+        </section>
+
+        <!-- Details Section -->
+        <section id="details" class="section">
+            <h2 class="section-title"><i class="fas fa-sparkles"></i> Special Details</h2>
+            
+            <h3><i class="fas fa-rose"></i> Enchanted Touches</h3>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4><i class="fas fa-glass-whiskey"></i> Rose Centerpieces</h4>
+                    <p>Beautiful roses preserved in glass creating an enchanted garden atmosphere at each table</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-book"></i> Custom Guest Book</i></h4>
+                    <p>Artwork inspired by Beauty & the Beast final scene where your wishes will be treasured forever</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-gift"></i> Wedding Favors</h4>
+                    <p>Tiny enchanted roses in glass domes as magical mementos of our special day</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-paw"></i> Furry Wedding Party</h4>
+                    <p>Tegrity and Geralt in beautiful floral collars as honored members of our celebration</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-music"></i> Musical Journey</h3>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4><i class="fas fa-church"></i> Ceremony Music</h4>
+                    <p>Carefully selected Disney melodies and classical pieces that tell our love story</p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-compact-disc"></i> Reception Entertainment</h4>
+                    <p>Romantic ballads, dance music, and meaningful songs from our journey together</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <h3><i class="fas fa-heart"></i> A Note of Gratitude</h3>
+                <p>We are so excited to celebrate this magical day with all of you. Your presence makes our fairy tale complete, and we can't wait to share these special moments with the people we love most.</p>
+                <p style="margin-top: 12px; font-style: italic;">Thank you for being part of our "happily ever after"</p>
+            </div>
+
+            <div class="final-message">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 2rem; margin-bottom: 16px; opacity: 0.7;">🌹</div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 1.2em; color: var(--primary); margin-bottom: 16px;">
+                        With all our love,
+                    </div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 1.4em; font-weight: 600; color: var(--text-dark);">
+                        Abby & Alex
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.nav-btn').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Reset card animations when switching sections
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add elegant floating roses
+            function createFloatingRose() {
+                const roses = ['🌹', '🌸', '💐', '🌺'];
+                const rose = document.createElement('div');
+                rose.innerHTML = roses[Math.floor(Math.random() * roses.length)];
+                rose.className = 'floating-rose';
+                rose.style.left = Math.random() * window.innerWidth + 'px';
+                rose.style.top = window.innerHeight + 'px';
+                rose.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                rose.style.fontSize = (Math.random() * 0.6 + 0.6) + 'rem';
+                
+                document.body.appendChild(rose);
+                
+                // Animate upward with gentle sway
+                let pos = window.innerHeight;
+                let sway = 0;
+                const animate = () => {
+                    pos -= 0.4;
+                    sway += 0.02;
+                    rose.style.top = pos + 'px';
+                    rose.style.left = (parseFloat(rose.style.left) + Math.sin(sway) * 0.5) + 'px';
+                    if (pos < -60) {
+                        rose.remove();
+                    } else {
+                        requestAnimationFrame(animate);
+                    }
+                };
+                animate();
+            }
+
+            // Add floating pearls
+            function createFloatingPearl() {
+                const pearl = document.createElement('div');
+                pearl.className = 'floating-pearl';
+                pearl.style.left = Math.random() * window.innerWidth + 'px';
+                pearl.style.animationDuration = (Math.random() * 8 + 10) + 's';
+                pearl.style.animationDelay = Math.random() * 2 + 's';
+                
+                document.body.appendChild(pearl);
+                
+                setTimeout(() => {
+                    if (pearl.parentNode) {
+                        pearl.remove();
+                    }
+                }, 20000);
+            }
+
+            // Create floating elements occasionally
+            setInterval(createFloatingRose, 12000);
+            setInterval(createFloatingPearl, 6000);
+
+            // Add scroll-based header parallax
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const header = document.querySelector('.header');
+                if (header) {
+                    header.style.transform = `translateY(${scrolled * 0.03}px)`;
+                }
+            });
+
+            // Add sparkle effect on hover for cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const sparkle = document.createElement('div');
+                    sparkle.innerHTML = '✨';
+                    sparkle.style.position = 'absolute';
+                    sparkle.style.top = Math.random() * 100 + '%';
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.pointerEvents = 'none';
+                    sparkle.style.animation = 'sparkle 1s ease-out forwards';
+                    sparkle.style.zIndex = '10';
+                    card.appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
