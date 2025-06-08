@@ -38,6 +38,214 @@
             background-color: var(--white);
         }
         
+        /* Audio Controls */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--cherry);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .audio-control:hover {
+            transform: scale(1.1);
+            background-color: var(--cherry-light);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .audio-control::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background-color: var(--cherry);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s ease;
+            opacity: 0.3;
+        }
+        
+        .audio-control:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .audio-icon {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .audio-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--cherry-dark);
+        }
+        
+        .audio-control.playing .audio-icon {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        /* Audio Waves Animation */
+        .audio-waves {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            gap: 3px;
+            align-items: center;
+            z-index: 1;
+        }
+        
+        .audio-control.playing .audio-waves {
+            display: flex;
+        }
+        
+        .audio-wave {
+            width: 3px;
+            height: 20px;
+            background-color: var(--cherry-dark);
+            border-radius: 3px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        
+        .audio-wave:nth-child(2) {
+            animation-delay: 0.2s;
+            height: 25px;
+        }
+        
+        .audio-wave:nth-child(3) {
+            animation-delay: 0.4s;
+            height: 15px;
+        }
+        
+        @keyframes wave {
+            0%, 100% {
+                transform: scaleY(0.5);
+            }
+            50% {
+                transform: scaleY(1);
+            }
+        }
+        
+        /* Volume Slider */
+        .volume-control {
+            position: fixed;
+            bottom: 100px;
+            right: 45px;
+            width: 30px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--cherry);
+            border-radius: 15px;
+            padding: 10px 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .volume-control.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 80px;
+            height: 20px;
+            background: linear-gradient(to right, var(--cherry-light) 0%, var(--cherry-dark) 100%);
+            outline: none;
+            transform: rotate(-90deg) translateX(-30px);
+            transform-origin: center;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background: var(--white);
+            border: 2px solid var(--cherry-dark);
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .volume-slider::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background: var(--white);
+            border: 2px solid var(--cherry-dark);
+            cursor: pointer;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Audio Notification */
+        .audio-notification {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--cherry);
+            border-radius: 10px;
+            padding: 15px 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--dark);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            max-width: 200px;
+            text-align: center;
+        }
+        
+        .audio-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .audio-notification .cherry-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+            vertical-align: middle;
+        }
+        
         /* Background */
         .bg-container {
             position: fixed;
@@ -569,6 +777,30 @@
                 height: 300px;
                 left: -100px;
             }
+            
+            .audio-control {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .audio-icon {
+                width: 20px;
+                height: 20px;
+            }
+            
+            .volume-control {
+                right: 35px;
+                bottom: 80px;
+            }
+            
+            .audio-notification {
+                bottom: 80px;
+                right: 20px;
+                font-size: 0.8rem;
+                padding: 10px 15px;
+            }
         }
         
         @media (max-height: 600px) {
@@ -617,6 +849,46 @@
                 <circle cx="50" cy="50" r="10" fill="#e08698"/>
             </svg>
         </div>
+    </div>
+    
+    <!-- Background Audio -->
+    <audio id="backgroundAudio" loop muted>
+        <source src="audio/audio.mp3" type="audio/mpeg">
+        <source src="audio/audio.ogg" type="audio/ogg">
+    </audio>
+    
+    <!-- Audio Control Button -->
+    <div class="audio-control" id="audioControl">
+        <div class="audio-icon" id="audioIcon">
+            <!-- Play Icon -->
+            <svg id="playIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5v14l11-7z"/>
+            </svg>
+            <!-- Pause Icon (hidden initially) -->
+            <svg id="pauseIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+        </div>
+        <!-- Audio Waves (shown when playing) -->
+        <div class="audio-waves">
+            <div class="audio-wave"></div>
+            <div class="audio-wave"></div>
+            <div class="audio-wave"></div>
+        </div>
+    </div>
+    
+    <!-- Volume Control -->
+    <div class="volume-control" id="volumeControl">
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
+    </div>
+    
+    <!-- Audio Notification -->
+    <div class="audio-notification" id="audioNotification">
+        <svg class="cherry-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C30 20 20 35 20 50 C20 65 30 80 50 80 C70 80 80 65 80 50 C80 35 70 20 50 20 M50 35 C60 25 75 25 75 40 C75 50 65 55 50 55 C35 55 25 50 25 40 C25 25 40 25 50 35" fill="#ffb7c5" opacity="0.9"/>
+            <circle cx="50" cy="50" r="3" fill="#e08698"/>
+        </svg>
+        Click to play romantic music
     </div>
     
     <!-- Background -->
@@ -786,19 +1058,19 @@
                 <div class="card-side card-back">
                     <div class="photos-container">
                         <div class="photo" id="photo1" style="--rotate: -10deg;">
-                            <img src="images/28EF0665-3D1E-46B2-A6E6-B1FDCA9047F4_1_201_a.jpeg" alt="Abby & Alex Photo">
+                            <img src="images/Screenshot_2025-06-07_at_10.33.49_PM.jpg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" id="photo2" style="--rotate: 8deg;">
-                            <img src="images/3AEF6DE1-6398-4DA1-9219-E97B092551DA_1_201_a.jpeg" alt="Abby & Alex Photo">
+                            <img src="images/Screenshot_2025-06-07_at_10.34.20_PM.jpg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" id="photo3" style="--rotate: 5deg;">
-                            <img src="images/41B8D6DA-0D42-41D9-B5A6-7E4FB79EDD29_1_201_a.jpeg" alt="Abby & Alex Photo">
+                            <img src="images/Screenshot_2025-06-07_at_10.34.38_PM.jpg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                         <div class="photo" id="photo4" style="--rotate: -5deg;">
-                            <img src="images/72CF7026-A4E8-4039-B2EA-CA4BC6DEB39F_1_201_a.jpeg" alt="Abby & Alex Photo">
+                            <img src="images/Screenshot_2025-06-07_at_10.34.59_PM.jpg" alt="Abby & Alex Photo">
                             <div class="photo-frame"></div>
                         </div>
                     </div>
@@ -838,8 +1110,107 @@
                 'B40E48E3-B40F-4299-A3C4-E67ABFD5C0C3_1_201_a.jpeg',
                 'BEF7EC55-1B3B-4F3C-9300-1308C0CEEADA_1_201_a.jpeg',
                 'C4EC1516-4864-48E4-A03F-0D1955CFA266_1_201_a.jpeg',
-                'D9174833-F45A-4702-9D15-8888A3D17802_1_201_a.jpeg'
+                'D9174833-F45A-4702-9D15-8888A3D17802_1_201_a.jpeg',
+                'Screenshot_2025-06-07_at_10.33.49_PM.jpg',
+                'Screenshot_2025-06-07_at_10.34.20_PM.jpg',
+                'Screenshot_2025-06-07_at_10.34.38_PM.jpg',
+                'Screenshot_2025-06-07_at_10.34.59_PM.jpg'
             ];
+            
+            // Audio System
+            const audio = document.getElementById('backgroundAudio');
+            const audioControl = document.getElementById('audioControl');
+            const playIcon = document.getElementById('playIcon');
+            const pauseIcon = document.getElementById('pauseIcon');
+            const volumeControl = document.getElementById('volumeControl');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const audioNotification = document.getElementById('audioNotification');
+            let isPlaying = false;
+            let volumeControlTimeout;
+            
+            // Set initial volume
+            audio.volume = 0.5;
+            
+            // Audio control click handler
+            audioControl.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                if (isPlaying) {
+                    // Pause audio
+                    audio.pause();
+                    audioControl.classList.remove('playing');
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                    isPlaying = false;
+                } else {
+                    // Play audio
+                    audio.play().then(() => {
+                        audioControl.classList.add('playing');
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'block';
+                        isPlaying = true;
+                        
+                        // Hide notification if shown
+                        audioNotification.classList.remove('show');
+                    }).catch(error => {
+                        console.log('Audio play failed:', error);
+                        // Show notification again if autoplay is blocked
+                        audioNotification.classList.add('show');
+                        setTimeout(() => {
+                            audioNotification.classList.remove('show');
+                        }, 3000);
+                    });
+                }
+            });
+            
+            // Show volume control on hover
+            audioControl.addEventListener('mouseenter', function() {
+                clearTimeout(volumeControlTimeout);
+                volumeControl.classList.add('visible');
+            });
+            
+            // Hide volume control when not hovering
+            audioControl.addEventListener('mouseleave', function() {
+                volumeControlTimeout = setTimeout(() => {
+                    volumeControl.classList.remove('visible');
+                }, 1000);
+            });
+            
+            // Keep volume control visible when hovering over it
+            volumeControl.addEventListener('mouseenter', function() {
+                clearTimeout(volumeControlTimeout);
+            });
+            
+            volumeControl.addEventListener('mouseleave', function() {
+                volumeControlTimeout = setTimeout(() => {
+                    volumeControl.classList.remove('visible');
+                }, 1000);
+            });
+            
+            // Volume slider handler
+            volumeSlider.addEventListener('input', function() {
+                audio.volume = this.value / 100;
+            });
+            
+            // Smooth fade in when audio starts (skip if already playing due to autoplay)
+            audio.addEventListener('play', function() {
+                // Only fade in if we're not already at target volume
+                if (audio.volume < volumeSlider.value / 100) {
+                    audio.volume = 0;
+                    const targetVolume = volumeSlider.value / 100;
+                    let currentVolume = 0;
+                    
+                    const fadeIn = setInterval(() => {
+                        currentVolume += 0.05;
+                        if (currentVolume >= targetVolume) {
+                            audio.volume = targetVolume;
+                            clearInterval(fadeIn);
+                        } else {
+                            audio.volume = currentVolume;
+                        }
+                    }, 100);
+                }
+            });
             
             // Create Cherry Blossoms
             createCherryBlossoms();
@@ -862,6 +1233,31 @@
                     
                     // Start countdown timer
                     setInterval(updateCountdown, 1000);
+                    
+                    // Attempt to autoplay audio after a short delay
+                    setTimeout(() => {
+                        // Unmute audio for autoplay
+                        audio.muted = false;
+                        audio.volume = 0.5;
+                        
+                        audio.play().then(() => {
+                            // Audio started successfully
+                            audioControl.classList.add('playing');
+                            playIcon.style.display = 'none';
+                            pauseIcon.style.display = 'block';
+                            isPlaying = true;
+                            
+                            // Hide notification since audio is playing
+                            audioNotification.classList.remove('show');
+                        }).catch(error => {
+                            // Autoplay was prevented, show notification
+                            console.log('Autoplay prevented:', error);
+                            audioNotification.classList.add('show');
+                            setTimeout(() => {
+                                audioNotification.classList.remove('show');
+                            }, 5000);
+                        });
+                    }, 2000);
                 }, 1500);
             });
             
